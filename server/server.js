@@ -9,7 +9,7 @@ const path = require('path');
 
 // Import routes
 const postRoutes = require('./routes/posts');
-const categoryRoutes = require('./routes/categories');
+const categoryRoutes = require('./routes/categoryRoutes');
 const authRoutes = require('./routes/auth');
 
 // Load environment variables

@@ -1,78 +1,92 @@
-# MERN Stack Integration Assignment
+# 📝 MERN Blog App
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+## 📌 Project Overview
 
-## Assignment Overview
+A full-stack blog platform built with the MERN stack (MongoDB, Express, React, Node.js). Users can register, log in, create posts, comment, and toggle dark mode. The app features responsive design, secure authentication, and a clean user experience.
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+---
 
-## Project Structure
+## 🚀 Setup Instructions
 
-```
-mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
-```
+### 🔧 Backend Setup
 
-## Getting Started
+```bash
+cd server
+npm install
+cp .env.example .env
+# Fill in your MongoDB URI and JWT secret in .env
+npm run server
+cd client
+npm install
+cp .env.example .env
+# Set VITE_API_URL to your backend URL in .env
+npm run dev
+## 📡 API Documentation
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+### 🔐 Authentication Routes
+- `POST /api/users/register`  
+  Registers a new user with name, email, and password.
 
-## Files Included
+- `POST /api/users/login`  
+  Authenticates a user and returns a JWT token.
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
+---
 
-## Requirements
+### 📝 Post Routes
+- `GET /api/posts`  
+  Retrieves all blog posts.
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+- `POST /api/posts`  
+  Creates a new post (requires authentication).
 
-## Submission
+- `GET /api/posts/:id`  
+  Retrieves a single post by ID.
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+- `PUT /api/posts/view/:id`  
+  Increments the view count of a post.
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+---
 
-## Resources
+### 💬 Comment Routes
+- `GET /api/posts/:id/comments`  
+  Retrieves all comments for a specific post.
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+- `POST /api/posts/:id/comments`  
+  Adds a new comment to a post (requires authentication).
+
+---
+
+### 📂 Category Routes
+- `GET /api/categories`  
+  Retrieves all available post categories.
+
+---
+
+## ✅ Features Implemented
+
+- 🔐 **User Authentication**  
+  Register and login with secure JWT-based authentication.
+
+- 📝 **Post Management**  
+  Create, view, and read blog posts with category and tag support.
+
+- 💬 **Comment System**  
+  Users can comment on posts and view all comments.
+
+- 🌙 **Dark Mode Toggle**  
+  Switch between light and dark themes with localStorage persistence.
+
+- 📈 **View Count Tracking**  
+  Each post tracks how many times it’s been viewed.
+
+- 🧭 **Routing with React Router**  
+  Seamless navigation between pages with protected routes.
+
+- 🎨 **Responsive UI with Tailwind CSS**  
+  Clean, mobile-friendly design with dark mode styling.
+
+- 🛠️ **Error Handling**  
+  Graceful handling of 404s, server errors, and form validation.
+
+- 📦 **Environment Configuration**  
+  `.env.example` files provided for both client and server setup.
